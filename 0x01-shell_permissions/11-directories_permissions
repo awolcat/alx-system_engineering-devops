@@ -1,2 +1,2 @@
 #!/bin/bash
-find -type d -exec chmod -R u+x,g+x,o+x . {} \
+chmod -R u+x,g+x,o+x .
