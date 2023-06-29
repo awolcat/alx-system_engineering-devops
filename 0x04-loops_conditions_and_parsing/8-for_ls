@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# List files in the current dir with filenames stripped
+
+files="$(ls)"
+for filename in $files; do
+	echo "$filename" | cut -d '-' -f 2
+done

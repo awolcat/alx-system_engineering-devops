@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# FizzBuzz!
+
+for num in {1..100}; do
+	((mod3= num % 3))
+	((mod5= num % 5))
+	if [ $mod3 -eq 0 ] && [ $mod5 -eq 0 ]; then
+		echo FizzBuzz
+	elif [ $mod3 -eq 0 ]; then
+		echo Fizz
+	elif [ $mod5 -eq 0 ]; then
+		echo Buzz
+	else
+		echo $num
+	fi
+done	

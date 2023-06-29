@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Print "Best School" 10 times and print "Hi" before last print
+
+count=0
+while [ "$count" -lt 10 ]; do
+	echo Best School
+	((count=count+1))
+	if [ "$count" -eq 9 ]; then
+		echo Hi
+	fi	
+done
