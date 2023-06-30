@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # PID made easy
 
-echo $PPID
-echo $$
+echo $PPID bash
+echo $$ bash
