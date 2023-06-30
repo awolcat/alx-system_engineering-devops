@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# An unstoppable force
+
+pkill -f -SIGKILL ./7-highlander 
