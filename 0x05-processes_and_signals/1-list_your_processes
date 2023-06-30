@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Print all running processes from all users including processes with no tty
+
+ps -e -H -u
