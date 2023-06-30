@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # I have only two weaknesses
 
-pid=$(echo $$)
+pid=$$
 sudo touch /var/run/myscript.pid
 sudo chmod o+rw /var/run/myscript.pid
-sudo echo $pid > /var/run/myscript.pid
-trap "sudo rm /var/run/myscript.pid" SIGQUIT
+echo "$pid" > /var/run/myscript.pid
+trap 'sudo rm /var/run/myscript.pid && kill '$pid' ' SIGQUIT
 trap "echo I hate the kill command" SIGTERM
 trap "echo Y U no love me?!" SIGINT
 while true; do
