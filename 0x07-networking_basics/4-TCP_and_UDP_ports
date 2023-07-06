@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# List only listening sockets and PID and name of prog to which socket belongs
+netstat -lp
