@@ -1,8 +1,11 @@
 # Client ssh config file
-file { 'usr ssh config':
-  path               => '/etc/ssh/ssh_config',
-  ensure             => file,
-  mode               => '0600',
-  source             => '2-ssh_config',
-  source_permissions => ignore
+augeas { 'ssh_config':
+  incl    => '/etc/ssh/ssh_config',
+  lens    => 'Ssh',
+  changes => [
+      "touch /etc/ssh/ssh_config/PasswordAuthentication",
+      "set /etc/ssh/ssh_config/PasswordAuthentication no",
+      "touch /etc/ssh/ssh_config/IdentityFile",
+      "set /etc/ssh/ssh_config/IdentityFile ~/.ssh/school",
+    ],
 }
