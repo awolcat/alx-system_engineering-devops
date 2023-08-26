@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Create RSA key pair with passphrase and store keys in school
+
+ssh-keygen -b 4096 -f school -P betty
