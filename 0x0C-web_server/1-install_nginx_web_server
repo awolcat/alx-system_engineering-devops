@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Install Nginx and Configure to return 'Hello World'
 
 sudo apt-get install -y nginx
