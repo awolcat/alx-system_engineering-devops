@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Install Nginx and Configure to return 'Hello World'
+
+sudo apt-get install -y nginx
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+newStr='server_name _;
+
+        location /redirect_me {
+                return 301 http://albertmathenge.tech;
+        }'
+
+sudo sed -i "s/server_name _;/$newStr/" /etc/nginx/sites-available/default
+
+sudo nginx -s reload
