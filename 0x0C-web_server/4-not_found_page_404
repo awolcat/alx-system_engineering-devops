@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Install Nginx and Configure to return 'Hello World'
+
+sudo apt-get install -y nginx
+
+# Configure default html page
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# 404 Error handling config
+errConf="error_page 404 /custom_404.html;
+	location = /custom_404.html {
+        	root /var/www/html;
+        	internal;
+	}"
+
+sudo echo "$errConf" > /etc/nginx/snippets/error-page.conf
+
+
+# 404 Error and Redirect host/redirect_me
+newStr="server_name _;
+
+	include snippets/error-page.conf
+
+        location /redirect_me {
+                return 301 http://albertmathenge.tech;
+        }"
+
+
+sudo sed -i "s/server_name _;/$newStr/" /etc/nginx/sites-available/default
+
+sudo nginx -s reload
