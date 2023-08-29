@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Fix Unresponsive Apache Server
+service apache2 status
+service apache2 start
