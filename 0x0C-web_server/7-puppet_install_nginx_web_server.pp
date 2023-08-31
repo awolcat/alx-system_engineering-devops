@@ -1,8 +1,8 @@
 # Install nginx and configure reirect
 
-exec { 'install_nginx':
-  command => 'apt-get install -y nginx',
-  creates => '/etc/nginx/sites-available/default',
+package { 'install_nginx':
+  ensure => installed,
+  name   => 'nginx'
 }
 
 file { 'edit default site':
