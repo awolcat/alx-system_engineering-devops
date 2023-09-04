@@ -11,10 +11,10 @@ echo "frontend albert-frontend
 	      bind *:80
 	      mode http
 	      default_backend albert-backend
-      backend albert-backend
-              balance roundrobin
-	      server web-01 100.26.234.115:80 check
-	      server web-02 52.91.132.168:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg
+backend albert-backend
+	balance roundrobin
+	server web-01 100.26.234.115:80 check
+	server web-02 52.91.132.168:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg
 # Allow HAProxy management by init script
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 # Restart HAProxy
