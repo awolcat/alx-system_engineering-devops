@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Configure nginx server
+
+sudo apt update
+
+sudo apt install -y nginx
+
+# Create new solitary server block
+
+echo 'server {
+      listen 80;
+      server_name _;
+
+      location / {
+	  add_header X-Served-By $hostname;
+	  return 200 "Hello World!\n";
+      }
+}' | sudo tee /etc/nginx/sites-available/hi-world
+
+# Enable new serverblock
+sudo ln -s /etc/nginx/sites-available/hi-world /etc/nginx/sites-enabled/hi-world
+
+# Disable default server block
+sudo rm /etc/nginx/sites-enabled/default
+
+# Test nginx syntax
+sudo nginx -t
+
+# Restart nginx
+sudo service nginx restart
