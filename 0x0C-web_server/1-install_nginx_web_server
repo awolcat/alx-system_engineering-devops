@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Install Nginx and Configure to return 'Hello World'
 
-apt-get update
-apt-get install -y nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-nginx -s reload
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo chown -R $USER:$USER /var/www/
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo nginx -s reload
