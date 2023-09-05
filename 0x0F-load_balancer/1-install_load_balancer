@@ -9,7 +9,7 @@ sudo apt-get install -y haproxy=2.8.\*
 # Configure HAProxy
 echo "frontend albert-frontend
 	bind *:80
-	mode http
+	mode tcp
 	default_backend albert-backend
 backend albert-backend
 	balance roundrobin
