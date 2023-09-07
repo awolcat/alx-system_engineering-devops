@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # Reconfigure nginx
 
-sudo service nginx status
-sudo service nginx restart
-ls -l /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
