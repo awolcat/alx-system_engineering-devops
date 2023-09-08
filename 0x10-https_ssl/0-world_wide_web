@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Interrogate domains
+
+
+dig_func () {
+	answer=$(dig "$1" | grep -A 1 'ANSWER SECTION')
+	echo $answer | awk '{ domain = substr( $4, 1, length($4)-1);
+				destination = $8;
+				i = index(domain, ".");
+				subdom = substr(domain, 1, i-1);
+				rec = $7;
+				print "The subdomain " subdom " is a " rec " record and points to " destination }'
+	return
+}
+
+if [ "$1" ] && [ "$2" ]; then
+        subdomain="$2.$1"
+	dig_func "$subdomain"
+elif [ "$1" ] && [ ! "$2" ]; then
+	subs=(www lb-01 web-01 web-02)
+	for sub in "${subs[@]}"; do
+		subdomain="$sub.$1"
+		dig_func "$subdomain"
+	done
+fi
