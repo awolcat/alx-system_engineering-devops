@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Run nginx as nginx
+
+chmod 644 /etc/nginx/nginx.conf
+sudo -u nginx service nginx start
