@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Run commands as another user
+
+if [ $# -ne 1 ]; then
+	echo "Usage 0-iamsomeoneelse <user>"
+	exit 1
+fi
+
+sudo -u $1 whoami
