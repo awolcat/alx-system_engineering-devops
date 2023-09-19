@@ -10,4 +10,5 @@ sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/ngin
 sudo sed -i 's/listen \[::\]:80/listen \[::\]:8080/' /etc/nginx/sites-available/default
 
 sudo nginx -t
-sudo service nginx start
+sudo chmod 444 /etc/nginx/nginx.conf
+sudo -u nginx service nginx start
