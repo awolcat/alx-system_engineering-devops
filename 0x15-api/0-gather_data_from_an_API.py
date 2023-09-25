@@ -15,10 +15,10 @@ def get_employee_todos():
     for todo in todos.json():
         if todo.get('userId') == id:
             totalTasks += 1
-            title = todo.get('title')
-            title = f'\t {title}\n'
-            taskTitles += title
             if todo.get('completed'):
+                title = todo.get('title')
+                title = f'\t {title}\n'
+                taskTitles += title
                 completed += 1
     name = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}')
     name = name.json().get('name')
