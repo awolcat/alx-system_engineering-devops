@@ -15,7 +15,7 @@ def get_employee_todos():
     taskTitles = ""
     rows = []
     name = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}')
-    name = name.json().get('name')
+    name = name.json().get('username')
     for todo in todos.json():
         if todo.get('userId') == id:
             status = todo.get('completed')
