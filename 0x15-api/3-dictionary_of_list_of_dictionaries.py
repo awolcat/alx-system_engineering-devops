@@ -11,6 +11,7 @@ def get_all_employee_todos():
     users = requests.get(usersUrl)
     todos = requests.get(todosUrl)
     userTasks = []
+    userTasksDict = {}
     for user in users.json():
         id = user.get('id')
         username = user.get('username')
@@ -24,7 +25,8 @@ def get_all_employee_todos():
                                 'completed': status
                             }
                 userTasks.append(taskDict)
-        userTasksDict = {str(id): userTasks}
+        userTasksDict[id] = userTasks
+        userTasks = []
 
     with open('todo_all_employees.json', 'w') as jsonfile:
         json.dump(userTasksDict, jsonfile)
