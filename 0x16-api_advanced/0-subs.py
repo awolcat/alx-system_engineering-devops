@@ -2,6 +2,7 @@
 """Module defines a single function"""
 import requests
 
+
 def number_of_subscribers(subreddit):
     """This function will send a request
         to the reddit api.
