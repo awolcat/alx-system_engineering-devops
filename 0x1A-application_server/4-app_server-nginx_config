@@ -76,7 +76,7 @@ server {
 	# proxy gunicorn app server for api
 	
 	location /api/ {
-		proxy_pass http://127.0.0.1:5002/api/;
+		proxy_pass http://127.0.0.1:5002;
 	}
 	# pass PHP scripts to FastCGI server
 	#
