@@ -10,9 +10,9 @@
 # Reconfigure nginx
 
 augeas { 'nginx.conf':
-  incl     => '/etc/nginx/nginx.conf',
-  lens     => 'Nginx.lns',
-  changes  => [
+  incl    => '/etc/nginx/nginx.conf',
+  lens    => 'Nginx.lns',
+  changes => [
                 'ins worker_rlimit_nofile after worker_processes',
                 'set worker_rlimit_nofile 16384',
                 'set worker_processes 8',
