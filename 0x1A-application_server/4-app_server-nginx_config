@@ -52,12 +52,10 @@ server {
 	add_header X-Served-By $hostname;
 
 	location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		# root home/ubuntu/AirBnB_clone_v4/web_dynamic/;
-		proxy_pass http://127.0.0.1:5003/2-hbnb;
-		# try_files $uri $uri/ =404;
-	}
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
 
 	location /redirect_me {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
@@ -77,8 +75,8 @@ server {
 
 	# proxy gunicorn app server for api
 	
-	location ~ ^/api/(.+) {
-		proxy_pass http://127.0.0.1:5002/api/$1;
+	location /api/ {
+		proxy_pass http://127.0.0.1:5002/api/;
 	}
 	# pass PHP scripts to FastCGI server
 	#
